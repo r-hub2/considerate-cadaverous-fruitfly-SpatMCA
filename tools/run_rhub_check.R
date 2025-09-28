@@ -59,7 +59,7 @@ run_rhub_check <- function(path = ".", platforms = NULL,
   )
 }
 
-summarise_rhub_jobs <- function(submissions) {
+summarise_rhub_jobs <- function(submissions = NULL) {
   if (is.null(submissions)) {
     return(data.frame(name = character(), id = character(), actions_url = character(),
                       repo_url = character(), stringsAsFactors = FALSE))
