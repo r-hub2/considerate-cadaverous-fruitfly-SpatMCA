@@ -175,7 +175,10 @@ if (requireNamespace("spTimer", quietly = TRUE) &&
   corr <- cor(tstemp, tsozone)
   plot(date, tstemp / sd(tstemp), type='l', main = "Time series", ylab = "", xlab = "month")
   lines(date, tsozone / sd(tsozone), col = 2)
-  legend("bottomleft", c("Temperature (standardized)", "Ozone (standardized)"), col = 1:2, lty = 1:1)
+  legend_position <- "bottomleft"
+  legend_labels <- c("Temperature (standardized)", "Ozone (standardized)")
+  legend_colors <- 1:2
+  legend(legend_position, legend_labels, col = legend_colors, lty = c(1, 1))
   mtext(paste("Pearson's correlation = ", round(corr, 3)), 3)
 
   ### New locations
