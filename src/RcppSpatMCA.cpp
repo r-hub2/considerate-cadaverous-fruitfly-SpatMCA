@@ -1,9 +1,8 @@
 // includes from the plugin
 // [[Rcpp::depends(RcppParallel)]]
 // [[Rcpp::depends(RcppArmadillo)]]
-#include <RcppParallel.h>
 #include <RcppArmadillo.h>
-#include <Rcpp.h>
+#include <RcppParallel.h>
 #include <iostream>
 // [[Rcpp::depends(RcppArmadillo)]]
 // [[Rcpp::plugins(cpp17)]] 

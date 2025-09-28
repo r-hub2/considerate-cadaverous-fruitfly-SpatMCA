@@ -39,4 +39,4 @@ Encoding: UTF-8
 RoxygenNote: 7.3.3
 Roxygen: list(markdown = TRUE)
 Config/testthat/edition: 3
-Packaged: 2025-09-28 15:58:54 UTC; joseph
+Packaged: 2025-09-28 16:26:42 UTC; joseph
