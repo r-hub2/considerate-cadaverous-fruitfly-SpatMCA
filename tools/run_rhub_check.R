@@ -47,6 +47,18 @@ run_rhub_checks <- function(path = ".", platforms = NULL,
   )
 }
 
+run_rhub_check <- function(path = ".", platforms = NULL,
+                           include_os = c("linux", "macos", "windows"),
+                           email = NULL, confirmation = NULL) {
+  run_rhub_checks(
+    path = path,
+    platforms = platforms,
+    include_os = include_os,
+    email = email,
+    confirmation = confirmation
+  )
+}
+
 summarise_rhub_jobs <- function(submissions) {
   if (is.null(submissions)) {
     return(data.frame(name = character(), id = character(), actions_url = character(),
