@@ -82,13 +82,12 @@ detrend <- function(Y, is_Y_detrended) {
 #' @return `NULL`
 #' 
 plot_sequentially <- function(objs) {
-  originalPar <- par(no.readonly = TRUE)
-  on.exit(par(par(originalPar)))
+  original_ask <- par("ask")
+  on.exit(par(ask = original_ask))
   par(ask = TRUE)
   for (obj in objs) {
     suppressWarnings(print(obj))
   }
-  par(ask = FALSE)
 }
 
 

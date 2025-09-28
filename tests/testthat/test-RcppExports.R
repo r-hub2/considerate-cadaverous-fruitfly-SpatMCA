@@ -21,7 +21,7 @@ test_that("spatmcacvall_rcpp returns the correct result", {
   result <- spatmcacvall_rcpp(sxr, syr, Xr, Yr, M, K, tau1ur, tau2ur, tau1vr, tau2vr, nkr, maxit, tol, l2ur, l2vr)
   
   # Check if the result is a list with expected components
-  expect_is(result, "list")
+  expect_type(result, "list")
   expect_true("cvall" %in% names(result))
   expect_true("Uest" %in% names(result))
   expect_true("Vest" %in% names(result))
@@ -69,7 +69,7 @@ test_that("spatmcacv_rcpp function produces correct output", {
   
   
   # Check if the result is a list
-  expect_is(result, "list")
+  expect_type(result, "list")
   
   # Check if the list contains expected components
   expect_true("cv1" %in% names(result))
@@ -82,4 +82,3 @@ test_that("spatmcacv_rcpp function produces correct output", {
   expect_true("cvtau1v" %in% names(result))
   expect_true("cvtau2v" %in% names(result))
 })
-

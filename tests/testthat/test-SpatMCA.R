@@ -47,7 +47,7 @@ test_that("Number of threads", {
 test_that("CV plot", {
   expect_error(
     plot.spatmca("test"),
-    cat("Invalid object! Please enter a `spatmca` object")
+    "Invalid object! Please enter a `spatmca` object"
   )
   expect_equal(class(plot.spatmca(cv_1D)), "list")
 })
