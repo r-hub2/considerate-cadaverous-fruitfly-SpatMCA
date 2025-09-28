@@ -32,11 +32,11 @@ Imports: Rcpp (>= 1.0.12), RcppParallel (>= 5.1.7), MASS, ggplot2,
 LinkingTo: Rcpp, RcppArmadillo, RcppParallel
 Suggests: testthat (>= 2.1.0), RColorBrewer, plot3D, pracma, spTimer,
         fields, maps, covr, V8
-SystemRequirements: GNU make
+SystemRequirements: C++17, GNU make
 NeedsCompilation: yes
 Maintainer: Wen-Ting Wang <egpivo@gmail.com>
 Encoding: UTF-8
 RoxygenNote: 7.3.3
 Roxygen: list(markdown = TRUE)
 Config/testthat/edition: 3
-Packaged: 2025-09-28 15:46:54 UTC; joseph
+Packaged: 2025-09-28 15:58:54 UTC; joseph
