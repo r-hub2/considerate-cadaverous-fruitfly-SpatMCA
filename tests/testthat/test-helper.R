@@ -1,7 +1,16 @@
-defaultNumber <- RcppParallel::defaultNumThreads()
+defaultNumber <- as.integer(
+  tryCatch({
+    env_threads <- Sys.getenv("RCPP_PARALLEL_NUM_THREADS", unset = NA)
+    if (!is.na(env_threads) && suppressWarnings(!is.na(as.numeric(env_threads)))) {
+      as.integer(env_threads)
+    } else {
+      parallel::detectCores(logical = TRUE)
+    }
+  }, error = function(...) 1L)
+)
 tol <- 1e-6
 
-test_that("The number of cores for RcppParallel", {
+test_that("The number of cores setting works", {
   expect_error(
     setCores("s"),
     "Please enter valid type - but got character"

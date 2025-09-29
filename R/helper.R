@@ -10,21 +10,24 @@ setCores <- function(ncores = NULL) {
       stop(paste0("Please enter valid type - but got ", class(ncores)))
     }
 
-    defaultNumber <- RcppParallel::defaultNumThreads()
+    defaultNumber <- tryCatch({
+      # Prefer environment override if set; otherwise use detected cores
+      env_threads <- Sys.getenv("RCPP_PARALLEL_NUM_THREADS", unset = NA)
+      if (!is.na(env_threads) && suppressWarnings(!is.na(as.numeric(env_threads)))) {
+        as.integer(env_threads)
+      } else {
+        as.integer(parallel::detectCores(logical = TRUE))
+      }
+    }, error = function(...) 1L)
+
     if (ncores > defaultNumber) {
       stop(paste0("The input number of cores is invalid - default is ", defaultNumber))
     }
     if (ncores < 1) {
       stop(paste0("The number of cores is not greater than 1 - but got ", ncores))
     }
-    tryCatch(
-      {
-        RcppParallel::setThreadOptions(numThreads = ncores)
-      },
-      error = function(err) {
-        stop(err$message, call. = FALSE)
-      }
-    )
+    # RcppParallel honors this environment variable for both TBB and tinythread backends
+    Sys.setenv(RCPP_PARALLEL_NUM_THREADS = as.integer(ncores))
     return(TRUE)
   }
 }

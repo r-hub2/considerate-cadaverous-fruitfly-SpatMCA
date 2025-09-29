@@ -19,7 +19,7 @@
 #' @param maxit Maximum number of iterations. Default value is 100.
 #' @param thr Threshold for convergence. Default value is \eqn{10^{-4}}.
 #' @param are_all_tuning_parameters_selected If TRUE, the K-fold CV performs to select 4 tuning parameters simultaneously. Default value is FALSE.
-#' @param num_cores Number of cores used to parallel computing. Default value is NULL (See `RcppParallel::defaultNumThreads()`)
+#' @param num_cores Number of cores used for parallel computing. Default is NULL (uses available cores).
 #'
 #' @return A list of objects including
 #' \item{Uestfn}{Estimated patterns for Y1 at the new locations, x1New.}

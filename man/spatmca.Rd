@@ -60,7 +60,7 @@ spatmca(
 
 \item{are_all_tuning_parameters_selected}{If TRUE, the K-fold CV performs to select 4 tuning parameters simultaneously. Default value is FALSE.}
 
-\item{num_cores}{Number of cores used to parallel computing. Default value is NULL (See \code{RcppParallel::defaultNumThreads()})}
+\item{num_cores}{Number of cores used for parallel computing. Default is NULL (uses available cores).}
 }
 \value{
 A list of objects including

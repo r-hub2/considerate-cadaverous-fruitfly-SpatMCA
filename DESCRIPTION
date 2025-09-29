@@ -27,8 +27,7 @@ Description: Provide regularized maximum covariance analysis incorporating smoot
   spaced data,  including 1D, 2D, and 3D (Wang and Huang, 2018 <doi:10.1002/env.2481>).
 License: GPL (>= 2)
 Depends: R (>= 3.4.0)
-Imports: Rcpp (>= 1.0.12), RcppParallel (>= 5.1.7), MASS, ggplot2,
-        scales
+Imports: Rcpp (>= 1.0.12), MASS, ggplot2, scales
 LinkingTo: Rcpp, RcppArmadillo, RcppParallel
 Suggests: testthat (>= 2.1.0), RColorBrewer, plot3D, pracma, spTimer,
         fields, maps, covr, V8
@@ -39,4 +38,4 @@ Encoding: UTF-8
 RoxygenNote: 7.3.3
 Roxygen: list(markdown = TRUE)
 Config/testthat/edition: 3
-Packaged: 2025-09-28 16:26:42 UTC; joseph
+Packaged: 2025-09-29 03:57:54 UTC; joseph

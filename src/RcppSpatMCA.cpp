@@ -1,5 +1,4 @@
 // includes from the plugin
-// [[Rcpp::depends(RcppParallel)]]
 // [[Rcpp::depends(RcppArmadillo)]]
 #include <RcppArmadillo.h>
 #include <RcppParallel.h>
@@ -88,7 +87,7 @@ arma::mat tpmatrix(const arma::mat P)
   L.zeros(p + d + 1, p + d + 1);
   Ip.eye(p + d + 1, p + d + 1);
   tpm tpm(P, L, p, d);
-  parallelFor(0, p, tpm);
+  RcppParallel::parallelFor(0, p, tpm);
   L = symmatl(L);
   Lp = inv_sympd(L + 1e-8 * Ip);
   Lp.shed_cols(p, p + d);
@@ -113,7 +112,7 @@ arma::mat tpm2(const arma::mat z, const arma::mat P, const arma::mat Phi)
   int p = P.n_rows, d = P.n_cols, K = Phi.n_cols;
   L.zeros(p + d + 1, p + d + 1);
   tpm tpm(P, L, p, d);
-  parallelFor(0, p, tpm);
+  RcppParallel::parallelFor(0, p, tpm);
   L = L + L.t();
   mat Phi_star, para(p + d + 1, K);
   Phi_star.zeros(p + d + 1, K);
